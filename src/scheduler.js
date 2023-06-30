@@ -50,7 +50,7 @@ class Scheduler extends EventEmitter{
         this.stop();
         this.removeAllListeners();
 
-        storage.remove(this);
+        storage.delete(this);
     }
 }
 
