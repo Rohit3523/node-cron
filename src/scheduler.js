@@ -2,6 +2,7 @@
 
 const EventEmitter = require('events');
 const TimeMatcher = require('./time-matcher');
+const storage = require('./storage');
 
 class Scheduler extends EventEmitter{
     constructor(pattern, timezone, autorecover){
@@ -43,6 +44,13 @@ class Scheduler extends EventEmitter{
             clearTimeout(this.timeout);
         }
         this.timeout = null;
+    }
+
+    destroy(){
+        this.stop();
+        this.removeAllListeners();
+
+        storage.remove(this);
     }
 }
 

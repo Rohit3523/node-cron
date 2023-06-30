@@ -61,4 +61,13 @@ function getTasks() {
     return storage.getTasks();
 }
 
-module.exports = { schedule, validate, getTasks };
+/**
+ * Deletes a scheduled task.
+ * 
+ * @param {ScheduledTask} task The task to be deleted.
+ */
+function deleteTask(task) {
+    storage.delete(task);
+}
+
+module.exports = { schedule, validate, getTasks, deleteTask };

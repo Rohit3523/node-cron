@@ -4,6 +4,7 @@ const EventEmitter = require('events');
 const Task = require('./task');
 const Scheduler = require('./scheduler');
 const uuid = require('uuid');
+const storage = require('./storage');
 
 class ScheduledTask extends EventEmitter {
     constructor(cronExpression, func, options) {
@@ -45,6 +46,13 @@ class ScheduledTask extends EventEmitter {
     
     stop() {
         this._scheduler.stop();
+    }
+
+    destroy() {
+        this.stop();
+        this.removeAllListeners();
+
+        storage.remove(this);
     }
 }
 

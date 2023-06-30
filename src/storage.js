@@ -14,6 +14,9 @@ module.exports = (() => {
         },
         getTasks: () => {
             return global.scheduledTasks;
+        },
+        delete: (task) => {
+            global.scheduledTasks.delete(task.options.name);
         }
     };
 })();
