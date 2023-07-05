@@ -59,9 +59,14 @@ module.exports = (() => {
         return storage.getTasks();
     }
 
+    function destroy(task) {
+        storage.destroy(task);
+    }
+
     return {
         schedule: schedule,
         validate: validate,
-        getTasks: getTasks
+        getTasks: getTasks,
+        destroyTask: destroy
     };
 })();
