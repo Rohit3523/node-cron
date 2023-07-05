@@ -11,10 +11,10 @@ module.exports = (() => {
             return global.scheduledTasks;
         },
         destroyTask: (task) => {
-            const task = global.scheduledTasks.find((t) => t?.id === task.id);
-            if(task){
-                task.stop();
-                global.scheduledTasks.splice(global.scheduledTasks.indexOf(task), 1);
+            const currenttask = global.scheduledTasks.find((t) => t?.id === task.id)
+            if(currenttask){
+                const index = global.scheduledTasks.indexOf(currenttask);
+                global.scheduledTasks.splice(index, 1);
             }
         }
     };
