@@ -60,7 +60,7 @@ module.exports = (() => {
     }
 
     function destroy(task) {
-        storage.destroy(task);
+        storage.destroyTask(task);
     }
 
     return {
